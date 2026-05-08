@@ -14,7 +14,7 @@ public class LoanApplicationResponse {
 
     private LoanOfferResponse offer;
 
-    private List<String> rejectionReasons;
+    private List<RejectionReason> rejectionReasons;
 
 	public UUID getApplicationId() {
 		return applicationId;
@@ -48,11 +48,11 @@ public class LoanApplicationResponse {
 		this.offer = offer;
 	}
 
-	public List<String> getRejectionReasons() {
+	public List<RejectionReason> getRejectionReasons() {
 		return rejectionReasons;
 	}
 
-	public void setRejectionReasons(List<String> rejectionReasons) {
+	public void setRejectionReasons(List<RejectionReason> rejectionReasons) {
 		this.rejectionReasons = rejectionReasons;
 	}
     
