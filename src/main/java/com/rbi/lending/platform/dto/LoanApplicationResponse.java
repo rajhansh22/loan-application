@@ -16,6 +16,15 @@ public class LoanApplicationResponse {
 
     private List<RejectionReason> rejectionReasons;
 
+	public LoanApplicationResponse(UUID applicationId, Status status, RiskBand riskBand, LoanOfferResponse offer,
+			List<RejectionReason> reasons) {
+		this.applicationId = applicationId;
+		this.status = status;
+		this.riskBand = riskBand;
+		this.offer = offer;
+		this.rejectionReasons = reasons;
+	}
+
 	public UUID getApplicationId() {
 		return applicationId;
 	}

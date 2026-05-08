@@ -11,4 +11,20 @@ public class LoanApplicationRequest {
     @Valid
     @NotNull(message = "Loan detail is mandatory")
     private LoanRequest loan;
+
+	public ApplicantRequest getApplicant() {
+		return applicant;
+	}
+
+	public void setApplicant(ApplicantRequest applicant) {
+		this.applicant = applicant;
+	}
+
+	public LoanRequest getLoan() {
+		return loan;
+	}
+
+	public void setLoan(LoanRequest loan) {
+		this.loan = loan;
+	}
 }

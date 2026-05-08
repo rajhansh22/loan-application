@@ -27,4 +27,44 @@ public class ApplicantRequest {
     @Min(value = 300, message = "Credit score must be >= 300")
     @Max(value = 900, message = "Credit score must be <= 900")
     private Integer creditScore;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public BigDecimal getMonthlyIncome() {
+		return monthlyIncome;
+	}
+
+	public void setMonthlyIncome(BigDecimal monthlyIncome) {
+		this.monthlyIncome = monthlyIncome;
+	}
+
+	public EmploymentType getEmploymentType() {
+		return employmentType;
+	}
+
+	public void setEmploymentType(EmploymentType employmentType) {
+		this.employmentType = employmentType;
+	}
+
+	public Integer getCreditScore() {
+		return creditScore;
+	}
+
+	public void setCreditScore(Integer creditScore) {
+		this.creditScore = creditScore;
+	}
 }

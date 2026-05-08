@@ -11,6 +11,13 @@ public class LoanOfferResponse {
 
     private BigDecimal totalPayable;
 
+	public LoanOfferResponse(BigDecimal interestRate, Integer tenureMonths, BigDecimal emi, BigDecimal totalPayable) {
+		this.interestRate = interestRate;
+		this.tenureMonths = tenureMonths;
+		this.emi = emi;
+		this.totalPayable = totalPayable;
+	}
+
 	public BigDecimal getInterestRate() {
 		return interestRate;
 	}
