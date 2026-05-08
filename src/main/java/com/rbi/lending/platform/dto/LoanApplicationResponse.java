@@ -3,6 +3,7 @@ package com.rbi.lending.platform.dto;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.rbi.lending.platform.domain.enums.*;
 
 public class LoanApplicationResponse {
@@ -12,8 +13,10 @@ public class LoanApplicationResponse {
 
     private RiskBand riskBand;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private LoanOfferResponse offer;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<RejectionReason> rejectionReasons;
 
 	public LoanApplicationResponse(UUID applicationId, Status status, RiskBand riskBand, LoanOfferResponse offer,
