@@ -5,10 +5,10 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.rbi.lending.platform.domain.entity.Applicant;
-import com.rbi.lending.platform.domain.entity.Loan;
-import com.rbi.lending.platform.domain.entity.LoanApplication;
-import com.rbi.lending.platform.domain.entity.LoanOffer;
+import com.rbi.lending.platform.domain.entity.ApplicantEntity;
+import com.rbi.lending.platform.domain.entity.LoanEntity;
+import com.rbi.lending.platform.domain.entity.LoanApplicationEntity;
+import com.rbi.lending.platform.domain.entity.LoanOfferEntity;
 import com.rbi.lending.platform.dto.ApplicantRequest;
 import com.rbi.lending.platform.dto.LoanApplicationRequest;
 import com.rbi.lending.platform.dto.LoanApplicationResponse;
@@ -17,11 +17,11 @@ import com.rbi.lending.platform.dto.LoanRequest;
 
 @Component
 public class ApplicationEntityMapper {
-	public LoanApplication toEntity(
+	public LoanApplicationEntity toEntity(
             LoanApplicationRequest request, LoanApplicationResponse response) {
 
-        LoanApplication entity =
-                new LoanApplication();
+        LoanApplicationEntity entity =
+                new LoanApplicationEntity();
         
         entity.setApplicationId(response.getApplicationId());
 
@@ -44,10 +44,10 @@ public class ApplicationEntityMapper {
         return entity;
     }
 
-    private Applicant mapApplicant(
+    private ApplicantEntity mapApplicant(
             ApplicantRequest request) {
 
-        Applicant applicant = new Applicant();
+        ApplicantEntity applicant = new ApplicantEntity();
 
         applicant.setName(request.getName());
         applicant.setAge(request.getAge());
@@ -63,10 +63,10 @@ public class ApplicationEntityMapper {
         return applicant;
     }
 
-    private Loan mapLoan(
+    private LoanEntity mapLoan(
             LoanRequest request) {
 
-        Loan loan = new Loan();
+        LoanEntity loan = new LoanEntity();
 
         loan.setAmount(request.getAmount());
 
@@ -78,12 +78,12 @@ public class ApplicationEntityMapper {
         return loan;
     }
     
-    private LoanOffer mapLoanOffer(
+    private LoanOfferEntity mapLoanOffer(
     		LoanOfferResponse response) {
     	
     	if(Optional.ofNullable(response).isEmpty())return null;
 
-    	LoanOffer offer = new LoanOffer();
+    	LoanOfferEntity offer = new LoanOfferEntity();
 
         offer.setEmi(response.getEmi());
         

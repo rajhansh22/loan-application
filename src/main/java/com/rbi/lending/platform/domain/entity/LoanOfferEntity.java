@@ -6,7 +6,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class LoanOffer {
+public class LoanOfferEntity {
 	
 	BigDecimal interestRate;
 	

@@ -9,7 +9,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
 @Embeddable
-public class Loan {
+public class LoanEntity {
 	BigDecimal amount;
 	
     Integer tenureMonths;

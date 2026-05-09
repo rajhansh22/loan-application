@@ -10,18 +10,18 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "loan_applications")
-public class LoanApplication {
+public class LoanApplicationEntity {
 	@Id
 	UUID applicationId;
 	
 	@Embedded
-    Applicant applicant;
+    ApplicantEntity applicant;
 	
 	@Embedded
-    Loan loan;
+    LoanEntity loan;
 	
 	@Embedded
-    LoanOffer offer;
+    LoanOfferEntity offer;
 	
 	@Enumerated(EnumType.STRING)
     Status status;
@@ -44,22 +44,22 @@ public class LoanApplication {
 	public void setApplicationId(UUID applicationId) {
 		this.applicationId = applicationId;
 	}
-	public Applicant getApplicant() {
+	public ApplicantEntity getApplicant() {
 		return applicant;
 	}
-	public void setApplicant(Applicant applicant) {
+	public void setApplicant(ApplicantEntity applicant) {
 		this.applicant = applicant;
 	}
-	public Loan getLoan() {
+	public LoanEntity getLoan() {
 		return loan;
 	}
-	public void setLoan(Loan loan) {
+	public void setLoan(LoanEntity loan) {
 		this.loan = loan;
 	}
-	public LoanOffer getOffer() {
+	public LoanOfferEntity getOffer() {
 		return offer;
 	}
-	public void setOffer(LoanOffer offer) {
+	public void setOffer(LoanOfferEntity offer) {
 		this.offer = offer;
 	}
 	public Status getStatus() {
