@@ -16,4 +16,28 @@ public class Loan {
     
     @Enumerated(EnumType.STRING)
     Purpose purpose;
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	public Integer getTenureMonths() {
+		return tenureMonths;
+	}
+
+	public void setTenureMonths(Integer tenureMonths) {
+		this.tenureMonths = tenureMonths;
+	}
+
+	public Purpose getPurpose() {
+		return purpose;
+	}
+
+	public void setPurpose(Purpose purpose) {
+		this.purpose = purpose;
+	}
 }

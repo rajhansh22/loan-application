@@ -13,6 +13,8 @@ import com.rbi.lending.platform.domain.enums.Status;
 import com.rbi.lending.platform.dto.LoanApplicationRequest;
 import com.rbi.lending.platform.dto.LoanApplicationResponse;
 import com.rbi.lending.platform.dto.LoanOfferResponse;
+import com.rbi.lending.platform.mapper.ApplicationEntityMapper;
+import com.rbi.lending.platform.repository.LoanApplicationRepository;
 
 @Service
 public class LoanApplicationService {
@@ -24,6 +26,10 @@ public class LoanApplicationService {
     private EmiCalculatorService emiCalculatorService;
 	@Autowired
     private EligibilityService eligibilityService;
+	@Autowired
+	private LoanApplicationRepository loanApplicationRepo;
+	@Autowired
+	private ApplicationEntityMapper applicationMapper;
 
     public LoanApplicationResponse process(
             LoanApplicationRequest request) {
@@ -56,13 +62,16 @@ public class LoanApplicationService {
 
         if (!reasons.isEmpty()) {
 
-            return new LoanApplicationResponse(
+        	LoanApplicationResponse response = new LoanApplicationResponse(
                     applicationId,
                     Status.REJECTED,
                     null,
                     null,
                     reasons
             );
+        	loanApplicationRepo.save(applicationMapper.toEntity(request, response));
+            
+            return response;
         }
 
         BigDecimal totalPayable =
@@ -77,12 +86,16 @@ public class LoanApplicationService {
                         emi,
                         totalPayable);
 
-        return new LoanApplicationResponse(
+        LoanApplicationResponse response = new LoanApplicationResponse(
                 applicationId,
                 Status.APPROVED,
                 riskBand,
                 offer,
                 null
         );
+        
+        loanApplicationRepo.save(applicationMapper.toEntity(request, response));
+        
+        return response;
     }
 }

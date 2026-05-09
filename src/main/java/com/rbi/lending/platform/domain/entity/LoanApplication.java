@@ -6,20 +6,12 @@ import java.util.UUID;
 
 import com.rbi.lending.platform.domain.enums.*;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "loan_applications")
 public class LoanApplication {
 	@Id
-    @GeneratedValue
 	UUID applicationId;
 	
 	@Embedded
@@ -38,6 +30,9 @@ public class LoanApplication {
     RiskBand riskBand;
 	
 	@ElementCollection(targetClass = RejectionReason.class)
+	@CollectionTable(
+            name = "application_rejection_reasons",
+            joinColumns = @JoinColumn(name = "application_id"))
 	@Enumerated(EnumType.STRING)
     List<RejectionReason> rejectionReasons;
 	
